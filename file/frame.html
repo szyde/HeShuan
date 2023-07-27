@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全民核酸检测综合管理平台</title>
+    <link rel="shortcut icon" href="../img/anti-virus.png" type="image/x-icon">
+</head>
+ <!--将窗口分为两个框架，两行（上下），上遍占据17-->
+ <frameset rows="17%,*" framespacing="0" border="0" >
+    <frame src="top.html" />
+    <frameset cols="0.5%,17%,81.6%,*" framespacing="0">
+        <frame>
+        <frame src="nav.html" name="left" border="2"/>
+        <!--注意此处是name属性的设置-->
+        <frame name="right"  src="headpage.html"/>
+    </frameset>
+</frameset>
+<body>
+<!--在left.html中，某一个具体的超链接的设置，target属性的设置-->
+<!-- <a href="#" target="right">点击后right.html在rignt（name）的框架中进行展示</sa> -->
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="shortcut icon" href="../img/anti-virus.png" type="image/x-icon">
+    <style>
+        tr{
+            margin-left: 20px;
+        }
+        td{
+            margin-left: 20px;
+            width: 410px;
+            height: 210px;
+            background-color:#ff0026;
+            
+            justify-content: center;
+            text-align: center;
+            border-radius: 5px;
+        }
+        #clock {
+      font-size: 35px;
+      text-align:right;
+      margin-top: 20px;
+    }
+
+
+    .continer div {
+      display: none;      /*默认隐藏*/
+    }
+ 
+    .continer:hover div {
+      display:initial;      /*当鼠标hover时展示*/
+      font-size: larger;
+      font-weight: 600;
+      
+      
+    }
+    .continer:hover img {
+     display: none;
+      
+    }
+    .continer p {
+      display:initial ;      /*默认隐藏*/
+    }
+ 
+    .continer:hover p {
+      display: none;      /*当鼠标hover时展示*/
+    }
+    p{
+      font-size: 30px;
+        font-weight: bolder;
+    }
+    #p1{
+        font-size: 40px;
+        font-weight: bolder;
+        
+    }
+    #p2{
+        font-size: 40px;
+        font-weight: bolder;
+        margin-left: 2px;
+        
+    }
+    #img1{
+      float: left;
+      width: 100px;
+      height: 100px;
+      vertical-align: middle;
+      
+    }
+    #img2{
+      float: right;width: 100px;height: 80px;vertical-align: middle;
+    }
+    </style>
+    <script src="../file/JS/chart.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/Chart.js/3.9.1/chart.js"></script> -->
+</head>
+<body style="background-color:  rgb(220,255,255)">
+   <div>
+    <h1 style="text-align: center">青岛市新冠疫情实时动态监测</h1>
+    
+   </div>
+   <div id="clock"></div>
+  
+   <div>
+    <canvas id="myChart" width="98%" height="450px"></canvas>
+   </div>
+   <br><br>
+   <div><h1 style="text-align: center">青岛市医院剩余床位</h1></div>
+   <div>
+    
+<canvas id="myChart-bar" width="98%" height="30px"></canvas>
+   </div>
+   <div>
+    <div><h1 style="text-align: center">现有治疗新冠的药品</h1>
+    </div>
+    <canvas id="restMedicine"width="98%" height="30px"></canvas>
+   </div>
+   <div>
+    <h2 style="text-align: center;color: red;">*青岛市高风险地区*</h2>
+   </div>
+<div style="margin-left: 10px;">
+   <table>
+   <tr>
+    <td>
+        <div class="continer">
+          <img src="../img/city01.png" alt=""height="80px">
+            <p>市北区</p>
+            <div>香港中路街道、八大峡街道、中山路街道
+                </div>
+        </div>
+    </td>
+    <td>
+       
+        <div class="continer">
+          <img src="../img/city02.png" alt=""height="80px">
+            <p>市南区</p>
+            <div>
+            辽宁路街道、延安路街道、敦化路街道</div>
+        </div>
+    </td>
+    <td>
+        
+        <div class="continer">
+          <img src="../img/city03.png" alt=""height="80px">
+            <p>崂山区</p>
+        <div>
+            中韩街道、沙子口街道、金家岭街道
+        </div> </div>
+    </td>
+    <td>
+       
+        <div class="continer">
+          <img src="../img/city04.png" alt=""height="80px">
+            <p>城阳区</p>
+        <div>城阳街道、上马街道、惜福镇街道</div>    
+        </div>
+    </td>
+   </tr>
+   <tr>
+    <td>
+       
+        <div class="continer">
+          <img src="../img/city05.png" alt=""height="80px">
+            <p>李沧区</p>
+            <div>振华路街道、兴城路街道、李村街道</div>
+        </div>
+    </td>
+    <td>
+      
+        <div class="continer"> 
+          <img src="../img/city06.png" alt=""height="80px">
+             <p>平度市</p>
+            <div>东阁街道、李园街道、同和街道、白沙河街道</div>
+            </div>
+    </td>
+   
+    <td>
+       
+        <div class="continer">
+          <img src="../img/city07.png" alt=""height="80px">
+            <p>黄岛区</p>
+        <div >黄岛街道、辛安街道、长江路街道</div>    
+        </div>
+    </td>
+    <td>
+      
+        <div class="continer">
+          <img src="../img/city08.png" alt=""height="80px">
+            <p>莱西市</p>
+        <div>水集街道、望城街道、沽河街道、姜山镇</div>    
+        </div>
+    </td>
+   </tr>
+   </table>
+</div>
+<br><br>
+   <div> <h2 style="text-align: center;">国外病例输入</h2>
+</div>
+   <div>
+      <canvas id="myChart-pie" width="400" height="400" >
+        
+      </canvas>
+    </div>
+    <br>
+    <div style="float: left;"><br>
+            <img src="../img/deal.png" alt="" id="img1">
+            <span id="p1">严防严控,联防联控,群防群控,坚决打赢疫情防控阻击战。</span>
+    <!-- <p id="p1" ></p> -->
+    </div>
+    <div style="float: right;">
+      <img src="../img/salute.png" alt="" id="img2">
+      <span id="p2">向一线的防疫工作者们致敬,向英雄致敬！</span>
+    <!-- <p id="p2"></p> -->
+    </div>
+<div style="clear: both;">
+<br> <br><br><br>
+</div>
+
+    <!-- //////////////////////////////////SCript/////////////////////////////////////////////// -->
+    <script>
+        const ctx = document.getElementById('myChart');
+        const data = {
+            labels: ['市南区', '市北区', '崂山区', '黄岛区', '胶州市', '城阳区', '即墨区', '平度区'],
+            datasets: [
+                {
+                    type: 'bar',
+                    label: '累计病例',
+                    data: [135, 160, 252, 148, 250, 210, 200, 180],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    borderWidth: 1
+                },
+                {
+                    type: 'line',
+                    label: '昨日新增病例',
+                    data: [50, 40, 45, 49, 30, 43, 48, 50],
+                    fill: false,
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 2
+                }
+            ]
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const myChart = new Chart(ctx, config);
+
+        // 
+
+
+    </script>
+   <script>
+    // 定义更新时钟的函数
+    function updateClock() {
+      // 获取当前时间
+      var now = new Date();
+      // 获取当前小时
+      var hours = now.getHours();
+      // 获取当前分钟
+      var minutes = now.getMinutes();
+      // 获取当前秒钟
+      var seconds = now.getSeconds();
+
+      // 格式化时间字符串
+      var time = hours + ":" + minutes + ":" + seconds;
+      // 将时间显示在<div>元素中
+      document.getElementById("clock").textContent = time;
+
+      // 每秒钟调用一次updateClock()函数，以保持时钟实时更新
+      setTimeout(updateClock, 1000);
+    }
+    // 启动时钟
+    updateClock();
+   </script>
+<script>
+    const ctx1 = document.getElementById('myChart-pie');
+    const data1 = {
+      labels: [
+        '日本',
+        '韩国',
+        '美国',
+        '其他'
+      ],
+      datasets: [{
+        label: '饼图实例',
+        data: [30, 19, 10,14],
+        backgroundColor: [
+          '#FF662A',
+          '#FFA22A',
+          '#82AC26',
+          '#4F3F84'
+        ],
+        hoverOffset: 4
+      }]
+    };
+    const config1 = {
+      type: 'pie',
+      data: data1,
+      options: {
+        responsive: true, // 设置图表为响应式，根据屏幕窗口变化而变化
+        maintainAspectRatio: false,// 保持图表原有比例
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }
+        ]
+       
+        }
+      }
+    };
+    const myChart1 = new Chart(ctx1, config1);
+    </script>
+    
+    <script>
+      const ctx2 = document.getElementById('myChart-bar');
+      const labels = ['青岛大学附属医院', '青岛市市立医院', '青岛市中心医院','山东青岛中西医结合医院',
+       '山东大学齐鲁医院', '青岛市胸科医院', '青岛市第三人民医院','青岛市第八人民医院'];  // 设置 X 轴上对应的标签
+      const data2 = {
+        labels: labels,
+        datasets: [{
+          label: '剩余床位',
+          data: [65, 59, 80, 81, 56, 55, 40,50],
+          backgroundColor: [      // 设置每个柱形图的背景颜色
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)',
+            'rgba(220, 170, 64, 0.2)',
+          ],
+          borderColor: [     //设置每个柱形图边框线条颜色
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)',
+            'rgb(220, 170, 64)',
+          ],
+          borderWidth: 1    // 设置线条宽度
+        }]
+      };
+      const config2 = {
+        type: 'bar', // 设置图表类型
+        data: data2,  // 设置数据集
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true // 设置 y 轴从 0 开始
+            }
+          }
+        },
+      };
+      const myChart2 =new Chart(ctx2, config2);
+      </script>
+  
+      <script>
+        const ctx3 = document.getElementById('restMedicine');
+        const labels3 = ['Paxlovid', '默沙东莫诺拉韦', '先诺欣','民得维', '乐睿灵', '阿兹夫定片', '布洛芬'];  // 设置 X 轴上对应的标签
+        const data3 = {
+          labels: labels3,
+          datasets: [{
+            label: '新冠特效药',
+            data: [1065, 1109, 890, 861, 956, 855, 940],
+            backgroundColor: [      // 设置每个柱形图的背景颜色
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [     //设置每个柱形图边框线条颜色
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1     // 设置线条宽度
+          }]
+        };
+        const config3 = {
+          type: 'bar', // 设置图表类型
+          data: data3,  // 设置数据集
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true // 设置 y 轴从 0 开始
+              }
+            }
+          },
+        };
+        const myChart3 = new Chart(ctx3, config3);
+        </script>
+        
+</body>
+</html>

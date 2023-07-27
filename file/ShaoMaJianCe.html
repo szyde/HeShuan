@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扫码检测</title>
+    <link rel="shortcut icon" href="../img/anti-virus.png" type="image/x-icon">
+    <style>
+        input{
+            height: 25px;
+            width: 200px;
+            border-style: none;
+            border-radius: 3px;
+            margin-left: 0px;
+            outline: none;
+        }
+        #reset{
+            height: 25px;
+            width: 100px;
+            border-style: none;
+            border-radius: 3px;
+            text-align: center;
+            background-color: chartreuse;
+            color: red;
+            font-weight: bold;
+        }
+        #submit{
+            height: 25px;
+            width: 100px;
+            border-radius: 3px;
+            border-radius: 3px;
+            border-style: none;
+            background-color: chartreuse;
+            color: red;
+            font-weight: bold;
+            margin-right: 40px;
+        }
+        select{
+            height: 25px;
+            width: 200px;
+            border-style: none;
+            border-radius: 3px;
+            outline: none;
+        }
+        #left{
+            float: left;
+            text-align: right;
+            width: 40%;
+            margin-left: 2%;
+        }
+       
+        #right{
+            /* text-align: right; */
+            width: 48%;
+            margin-left: 45%;
+            background-color: white;
+        }
+
+
+    </style>
+ 
+</head>
+<body style="background-color:RGB(220,255,255)">
+    <div id="left">
+        <form action="">
+            <table>
+                <tr>
+                    <td><label for="Number"><span style="color: red;">*</span>试管编号：</label></td>
+                    <td><input id="Number" type="text" placeholder="请输入试管的编号"></td>
+                </tr>
+              
+                <tr>
+                    <td><span style="color: red;">*</span>姓名：</td>
+                    <td><input type="text" id="name" required autocomplete="on"></td>
+                </tr>
+                <tr>
+                    <td><span style="color: red;">*</span>手机号：</td>
+                    <td><input type="tel" name="tel" id="tel" required></td>
+                </tr>
+                <tr>
+                    <td><span style="color: red;">*</span>证件号：</td>
+                    <td><input type="text" id="idNumber" required></td>
+                </tr>
+                <tr>
+                    <td><span style="color: red;">*</span>居住地址：</td>
+                    <td><input id="addr" required></td>
+                </tr>
+                <tr>
+                    <td><span style="color: red;">*</span>人员类别：</td>
+                    <td><select name="humantype" id="">
+                       <option value="未感染">未感染</option>
+                       <option value="无症状">无症状</option>
+                       <option value="已感染">已感染</option>
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>证件类型:</td>
+                    <td><select name="idType" id="idType" required>
+                        <option value="0" disabled>选择证件类型: </option>
+                        <option value="opt1">身份证</option>
+                        <option value="opt2">护照</option>
+    
+                    </select></td>
+                </tr>
+
+<tr>
+    <td><span style="color: red;">*</span>采样单位：</td>
+    <td> <select name="Organizationn" id="Organization" disabled>
+        <option value=0 disabled>请选择注册单位</option>
+        <optgroup label="教育">
+        <option value="qdu" selected>青岛大学</option>
+           <option value="qstu">青岛科技大学</option>
+           <option value="qlu">青岛理工大学</option>
+           <option value="cou">中国海洋大学</option>
+           <option value="sdu">山东大学</option>
+           <option value="sdkjdx">山东科技大学</option>
+        </optgroup>
+        <optgroup label="企业">
+            <option value="opt">青岛啤酒</option>
+            <option value="haier">海尔集团</option>
+            <option value="haixin">海信集团</option>
+            <option value="chinamobile">中国移动</option>
+            <option value="geer">歌尔</option>
+            <option value="bankofpeople">中国人民银行</option>
+        </optgroup>
+       <optgroup label="居民小区">
+        <option value="LuXinHuaYuan">鲁信花园</option>
+        <option value="YueLiangWan">月亮湾</option>
+        <option value="RongChuangDuHui">融创都会</option>
+        <option value="KangDa">康大风和日丽</option>
+        <option value="LaiYang8">莱阳8号公馆</option>
+        <option value="DaLaoLu">大崂路</option>
+       </optgroup>
+    </select></td>
+</tr>
+
+                <tr>
+                    <td>街道：</td>
+                    <td><select name="" id="neiborhood" disabled>
+                        <option value="0"disabled>请选择街道</option>
+                        <optgroup label="市南区">
+                            <option value="opt1">中山路街道</option>
+                            <option value="opt2">观海路街道</option>
+                            <option value="opt3">八大峡街道</option>
+                            <option value="opt5">香港中路街道</option>
+                            <option value="opt6">八大湖街道</option>
+                        </optgroup>
+                        <optgroup label="市北区">
+                            <option value="opt7">振华路街道</option>
+                            <option value="opt8">湖口街道</option>
+                            <option value="opt9">辽阳路街道</option>
+                            <option value="opt10">敦化路街道</option>
+                            <option value="opt11">华阳路街道</option>
+                            <option value="opt12">胶州路街道</option>
+                            <option value="opt13">鞍山路街道</option>
+                        </optgroup>
+                        <optgroup label="黄岛区">
+                            <option value="opt16">辛安街道</option>
+                            <option value="opt17">薛家岛街道</option>
+                            <option value="opt18">长江路街道</option>
+                            <option value="opt19">灵珠山街道</option>
+                            <option value="opt20">红石崖街道</option>
+                            <option value="opt21">胶南街道</option>
+                        </optgroup>
+    
+    
+                        <optgroup label="崂山区">
+                            <option value="opt22" selected>金家岭街道</option>
+                            <option value="opt23">中韩街道</option>
+                            <option value="opt24">沙子口街道</option>
+                            <option value="opt25">王哥庄街道</option>
+                            <option value="opt26">北宅街道</option>
+                        </optgroup>
+                        <optgroup label="李沧区">
+                            <option value="opt27">兴华路街道</option>
+                            <option value="opt28">兴城路街道</option>
+                            <option value="opt29">李村街道</option>
+                            <option value="opt30">虎山路街道</option>
+                            <option value="opt31">浮山路街道</option>
+                            <option value="opt32">湘潭路街道</option>
+                        </optgroup>
+                        <optgroup label="城阳区">
+                            <option value="opt33">城阳街道</option>
+                            <option value="opt34">流亭街道</option>
+                            <option value="opt35">夏庄街道</option>
+                            <option value="opt36">惜福镇街道</option>
+                            <option value="opt37">棘洪滩街道</option>
+                            <option value="opt38">上马街道</option>
+                        </optgroup>
+                        <optgroup label="即墨区">
+                            <option value="opt39">环秀街道</option>
+                            <option value="opt40">潮海街道</option>
+                            <option value="opt41">通济街道</option>
+                            <option value="opt42">北安街道</option>
+                            <option value="opt43">龙山街道</option>
+                            <option value="opt44">鳌山卫街道</option>
+                        </optgroup>
+                        <optgroup label="胶州市">
+                            <option value="opt45">阜安街道</option>
+                            <option value="opt46">三里河街道</option>
+                            <option value="opt47">胶东街道</option>
+                            <option value="opt48">胶北街道</option>
+                            <option value="opt49">九龙街道</option>
+                            <option value="opt50">胶西街道</option>
+                            <option value="opt51">胶莱街道</option>
+                        </optgroup>
+                        <optgroup label="莱西市">
+                            <option value="opt52">水集街道</option>
+                            <option value="opt53">望城街道</option>
+                            <option value="opt54">沽河街道</option>
+                            <option value="opt55">夏格庄镇</option>
+                            <option value="opt56">院上镇</option>
+                            <option value="opt57">日庄镇</option>
+                        </optgroup>
+                    </select></td>
+                </tr>
+               
+                <tr>
+                    <td>居住类别：</td>
+                    <td><select name="liveType" id="liveType">
+                       <option value="1" selected>常住居民</option>
+                       <option value="2">外来流动</option>
+                       <option value="3">国外入境</option>
+                    </select></td>
+                </tr>
+               
+                <tr>
+                    <td>本试管已采数量：</td>
+                    <td><output id="output">0</output></td>
+                </tr>
+                <tr>
+                    <td>附加说明：</td>
+                    <td><textarea name="" id="specialCase" cols="30" rows="2" style="outline: none;border: 1px solid white;"></textarea></td>
+                </tr> 
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" id="reset">重置</button>
+                        <button type="button" id="submit">提交</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="right">
+        <h2>已采样人员信息：</h2>
+        <div id="sampledInfo"></div>
+    </div>
+    <script>
+        // 加一功能
+        document.addEventListener('DOMContentLoaded', function() {
+        var outputElement = document.getElementById('output');
+        var submitButton = document.getElementById('submit');
+        var count = 0;
+
+        submitButton.addEventListener('click', function() {
+            if(count<20){
+                count++;
+                outputElement.textContent = count;
+            }else{
+                alert("本试管已满，请更换新的试管。")
+            }
+            // count++;
+            // outputElement.textContent = count;
+
+            var sampledInfoElement = document.getElementById('sampledInfo');
+            var nameInput = document.querySelector('input[type="text"]');
+            var idInput = document.querySelector('select[name="idNumber"]');
+            var phoneInput = document.getElementById('tel');
+
+            sampledInfoElement.innerHTML = `
+                <h3>本试管已采样人信息：</h3>
+                <p>姓名：${nameInput.value}</p>
+                <p>身份证号码：${idInput.value}</p>
+                <p>手机号码：${phoneInput.value}</p>`
+            ;
+        });
+    });
+        // 右边显示信息功能
+        const sampledInfoDiv = document.getElementById("sampledInfo");
+        const nameInput = document.getElementById("name");
+        const idNumberInput = document.getElementById("idNumber");
+        const submitButton = document.getElementById("submit");
+const tel01=document.getElementById("tel");
+        let sampledPeople = [];
+        // let 关键字则引入了块级作用域（block scope），即在 {} 内部声明的变量只在该块级作用域内有效，并且不会存在变量提升。
+        submitButton.addEventListener("click", function() {
+            const name = nameInput.value;
+            const idNumber = idNumberInput.value;
+            // 
+            const tel02=tel01.value;
+            if (name !== "" && idNumber !== "") {
+                sampledPeople.push({ name, idNumber ,tel02});
+                updateSampledInfo();
+                clearInputs();
+            }
+        });
+
+        function updateSampledInfo() {
+            sampledInfoDiv.innerHTML = "";
+            sampledPeople.forEach(function(person) {
+                const personDiv = document.createElement("div");
+                personDiv.textContent = `姓名：${person.name},证件号：${person.idNumber},电话：${person.tel02}`;
+                sampledInfoDiv.appendChild(personDiv);
+            });
+        }
+
+        function clearInputs() {
+            nameInput.value = "";
+            idNumberInput.value = "";
+        }
+
+        document.getElementById("reset").addEventListener("click", function() {
+            sampledPeople = [];
+            updateSampledInfo();
+            clearInputs();
+        });
+    </script>
+</body>
+</html>

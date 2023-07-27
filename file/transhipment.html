@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转运记录</title>
+    <style>
+        table {
+            font-size: x-large;
+            position: relative;
+            left: 25%;
+        }
+        h2 {
+            text-align: center;
+        }
+        input{
+            font-size: x-large;
+            margin: 10px;
+            border-style: none;
+            border-radius: 3px;
+        }
+        select{
+            font-size: x-large;
+            margin: 10px;
+            border-style: none;
+            border-radius: 3px;
+        }
+        #submit{
+            width: 200px;
+            height: 40px;
+            border-radius: 6px;
+            outline: none;
+            border: solid white 1px;
+            font-size: large;      
+            /* padding-left: 50px; 
+            background-image: url('../img/check.png');
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            background-size: 30px 30px; */
+        }
+        /* #submit {
+            font-size: x-large;
+            background-color: darkcyan;
+            border-color: cornflowerblue;
+            color: aliceblue;
+            font-style: italic;
+            margin: 10px;
+        } */
+        #reset{
+            width: 200px;
+            height: 40px;
+            border-radius: 6px;
+            outline: none;
+            border: solid white 1px;
+            font-size: large;      
+            /* padding-left: 50px;      
+            background-image: url('../img/cross.png');
+            background-position: 10px center;
+            background-repeat: no-repeat;
+            background-size: 30px 30px; */
+        }
+        /* #reset {
+            font-size: x-large;
+            background-color: darkcyan;
+            border-color: cornflowerblue;
+            color: aliceblue;
+            margin: 10px;
+        } */
+        .td1{
+            text-align: right;
+        }
+        .button1{
+            position: absolute;
+            left: 220px;
+            top: 380px;
+        }
+        #container{
+            position: absolute;
+            left: 8%;
+            top: 25;
+        }
+        #container_bill{
+            position: absolute;
+            right: 10%;
+            top: 12%;
+            font-size: x-large;
+            border: 5px solid darkcyan;
+        }
+        #container_bill {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body style="background-color:RGB(220,255,255)">
+    <div id="container">
+    <table>
+        <form>
+            <tr>
+                <td colspan="2"><h2>转运记录</h2></td>
+            </tr>
+        <tr>
+            <td class="td1"><label for="sampleNumber">试管编号：</label></td>
+            <td><input type="text" id="sampleNumber" name="sampleNumber" placeholder="请输入样本编号" required></td>
+        </tr>
+        <tr>
+            <td class="td1"><label for="samplingTime">采样时间：</label></td>
+            <td><input type="datetime-local" id="samplingTime" name="samplingTime" placeholder="请输入样本编号" required></td>
+        </tr>
+        <tr>
+            <td class="td1"><label for="samplingLocation">采样地点：</label></td>
+            <td>
+                <select id="samplingLocation" name="samplingLocation">
+                    <option value="">请选择采样地点：</option>
+                    <option value="地点1">青岛大学采样点1</option>
+                    <option value="地点2">青岛大学地点2</option>
+                    <option value="地点3">青岛大学地点3</option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td1"><label for="transportTime">转运时间：</l</td>
+            <td><input type="datetime-local" id="transportTime" name="transportTime" required></td>
+        </tr>
+        <tr>
+            <td class="td1"><label for="transportLocation">转运地点：</label></td>
+            <td>
+                <select id="transportLocation" name="transportLocation">
+                    <option value="">请选择转运地点：</option>
+                    <option value="地点1">地点1</option>
+                    <option value="地点2">地点2</option>
+                    <option value="地点3">地点3</option>
+                </select>
+            </td>
+        </tr>
+        </table>
+    </div>
+        <div class="button1">
+            <!-- 此处不能该type为submit，因为改成submit，点击的时候会自动提交刷新，不能实现右边呈现出表单的效果，但有时候也可以，原因还是不清楚 -->
+            <button type="button" id="submit"> + 生成转运单</button>   
+            <button type="reset" id="reset">重置</button>
+        </div>
+    </form>
+        <!-- <tr>
+            <td><button type="submit" id="submit"> + 生成转运单</button></td>
+            <td><button type="reset" id="reset">重置</button>
+            </td>
+        </tr> -->
+        <div id="container_bill">
+
+        </div>
+    </form>
+    </table>
+
+
+
+
+
+
+
+
+    <script>
+        // 获取按钮和表单的引用
+    var submitBtn = document.getElementById("submit");
+    var form = document.querySelector("form");
+
+    // 点击按钮时触发事件
+    submitBtn.addEventListener("click", function() {
+    // 获取表单中的值
+    var sampleNumber = form.elements.sampleNumber.value;
+    var samplingTime = form.elements.samplingTime.value;
+    var samplingLocation = form.elements.samplingLocation.value;
+    var transportTime = form.elements.transportTime.value;
+    var transportLocation = form.elements.transportLocation.value;
+
+    // 构建要显示的内容
+    content = "试管编号：" + sampleNumber + "<br>";
+    content += "采样时间：" + samplingTime + "<br>";
+    content += "采样地点：" + samplingLocation + "<br>";
+    content += "转运时间：" + transportTime + "<br>";
+    content += "转运地点：" + transportLocation;
+
+    // 显示内容在container div中
+    var container = document.getElementById("container_bill");
+    container.innerHTML = content;
+        
+    var str2 = confirm("请检查生成转运单是否无误");
+            if(str2) {
+            alert("转运单已生成！");
+            } else {
+            
+            }
+    });
+    </script>
+</body>
+</html>
